@@ -22,7 +22,7 @@ int gcd(int a, int b)
     return abs(a);
 }
 
-TEST_CASE("describe_gcd", "[gcd]")
+TEST_CASE("describe_gcd_1", "[gcd]")
 {
     REQUIRE(gcd(2,4)==2);
     REQUIRE(gcd(1,0)==1);
@@ -42,11 +42,29 @@ int cheksum(int n)
     return sum;
     std::cout << "Die Quersumme von " << n << "ist" << sum << "\n";
 }
-TEST_CASE("describe_cheksum", "[cheksum]")
+TEST_CASE("describe_cheksum_2", "[cheksum]")
 {
     REQUIRE(cheksum(123456)==21);
     REQUIRE(cheksum(0)==0);
     REQUIRE(cheksum(6000)==6);
+}
+
+int sum_multiples(int n)
+{
+    int ergebnis = 0;
+    if (n % 3 || n % 5)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            ergebnis = ergebnis + i;
+        }
+        std::cout << "die Summe alle Zahlen von 1 bis 1000, die durch 3 oder 5 teilbar sind : " << ergebnis << "\n";
+        return ergebnis;
+    }
+}
+TEST_CASE("describe_summultiples_3", "[sum_multiples]")
+{
+    REQUIRE(sum_multiples(1000)==499500);
 }
 
 int main(int argc, char* argv[])

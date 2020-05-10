@@ -31,6 +31,24 @@ TEST_CASE("describe_gcd", "[gcd]")
     REQUIRE(gcd(3,-7)==1);
 }
 
+int cheksum(int n)
+{
+    int sum = 0;
+    while (n > 0)
+    {
+        sum = sum +(n%10);
+        n = n / 10;
+    }
+    return sum;
+    std::cout << "Die Quersumme von " << n << "ist" << sum << "\n";
+}
+TEST_CASE("describe_cheksum", "[cheksum]")
+{
+    REQUIRE(cheksum(123456)==21);
+    REQUIRE(cheksum(0)==0);
+    REQUIRE(cheksum(6000)==6);
+}
+
 int main(int argc, char* argv[])
 {
   return Catch::Session().run(argc, argv);

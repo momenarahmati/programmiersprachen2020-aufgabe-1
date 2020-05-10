@@ -109,6 +109,26 @@ TEST_CASE("testoeberflaeche_6", "[oeberflaeche]")
     REQUIRE(oeberflaeche(0, 0) == 0);
 }
 
+int factorial(int n)
+{
+    if (n == 0)
+    {
+        return 1;
+    }
+    int ergebnis = 1;
+    for (int i =1; i<=n; i++)
+    {
+        ergebnis *= i;
+    }
+    return ergebnis;
+}
+TEST_CASE("testfactorial", "[factorial]")
+{
+    REQUIRE(factorial(4) == 24);
+    REQUIRE(factorial(0) == 1);
+    REQUIRE(factorial(1) == 1);
+}
+
 
 int main(int argc, char* argv[])
 {

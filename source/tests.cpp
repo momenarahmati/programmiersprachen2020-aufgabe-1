@@ -67,6 +67,22 @@ TEST_CASE("describe_summultiples_3", "[sum_multiples]")
     REQUIRE(sum_multiples(1000)==499500);
 }
 
+double fract(double n)
+{
+    int a;
+    double b;
+    a = (int)n; // Typekonvertierung von double in int
+    b = n - a;
+    return b;
+}
+TEST_CASE("describe_fract_4", "[fract]")
+{
+    REQUIRE(fract(8.25)==Approx(0.25));
+    REQUIRE(fract(0.0)==Approx(0.0));
+    REQUIRE(fract(-75.01)==Approx(-0.01));
+}
+
+
 int main(int argc, char* argv[])
 {
   return Catch::Session().run(argc, argv);

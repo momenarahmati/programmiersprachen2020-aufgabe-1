@@ -81,6 +81,33 @@ TEST_CASE("describe_fract_4", "[fract]")
     REQUIRE(fract(0.0)==Approx(0.0));
     REQUIRE(fract(-75.01)==Approx(-0.01));
 }
+double volumZylinder(float r, float h)
+{
+    double volum;
+    double Pi = 3.14;
+    volum = r*r*Pi*h;
+    return volum;
+}
+TEST_CASE("testVolumZylinder_5", "[volZylinder]")
+{
+    REQUIRE(volumZylinder(3, 5) == Approx(141.3));
+    REQUIRE(volumZylinder(0, 0) == 0);
+    REQUIRE(volumZylinder(1, 1) == 3.14);
+}
+double oeberflaeche(float r, float h)
+{
+    double ergebnis;
+    double Pi = 3.14;
+    ergebnis = 2 * Pi * r * (r + h);
+    return ergebnis;
+}
+
+TEST_CASE("testoeberflaeche_6", "[oeberflaeche]")
+{
+    REQUIRE(oeberflaeche(3, 5) == 150.72);
+    REQUIRE(oeberflaeche(1, 1) == 12.56);
+    REQUIRE(oeberflaeche(0, 0) == 0);
+}
 
 
 int main(int argc, char* argv[])

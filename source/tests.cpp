@@ -129,6 +129,31 @@ TEST_CASE("testfactorial", "[factorial]")
     REQUIRE(factorial(1) == 1);
 }
 
+int istPrim(int p)
+{ 
+    bool is_Prim_is_true = true;
+    if (p == 0 || p==1)
+    {
+        return false;
+    }
+    for (int teiler = 2; teiler < p - 1; teiler++)
+    {
+        if (p % teiler == 0)
+        {
+            return false;
+            std::cout << p << " ist kein Prim Zahl /n";
+        }
+        else
+        std::cout << p << " ist Prim Zahl ";
+        return true;
+    }
+}
+TEST_CASE("primZahl", "[istPrim]")
+{
+    REQUIRE(istPrim(5) == true);
+    REQUIRE(istPrim(1) == false);
+    REQUIRE(istPrim(0) == false);
+}
 
 int main(int argc, char* argv[])
 {
